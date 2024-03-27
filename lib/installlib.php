@@ -179,7 +179,7 @@ function install_helpbutton($url, $title='') {
  * @return string
  */
 function install_db_validate($database, $dbhost, $dbuser, $dbpass, $dbname, $prefix, $dboptions) {
-    if (!preg_match('/^[a-z0-9_]*$/', $prefix)) {
+    if (!preg_match('/^[a-z_]*$/', $prefix)) {
         return get_string('invaliddbprefix', 'install');
     }
     try {

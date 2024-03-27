@@ -255,7 +255,7 @@ if (is_null($CFG->dataroot)) {
     $CFG->dataroot = __DIR__.'/../moodledata';
 
     $i = 0; //safety check - dirname might return some unexpected results
-    while(false) {
+    while(is_dataroot_insecure()) {
         $parrent = dirname($CFG->dataroot);
         $i++;
         if ($parrent == '/' or $parrent == '.' or preg_match('/^[a-z]:\\\?$/i', $parrent) or ($i > 100)) {
@@ -326,7 +326,7 @@ if ($config->stage == INSTALL_DOWNLOADLANG) {
     if (empty($CFG->dataroot)) {
         $config->stage = INSTALL_PATHS;
 
-    } else if (false) {
+    } else if (is_dataroot_insecure()) {
         $hint_dataroot = get_string('pathsunsecuredataroot', 'install');
         $config->stage = INSTALL_PATHS;
 

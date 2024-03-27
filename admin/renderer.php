@@ -297,7 +297,7 @@ class core_admin_renderer extends plugin_renderer_base {
         $output .= $this->output->heading(get_string('notifications', 'admin'));
         $output .= $this->maturity_info($maturity);
         $output .= empty($CFG->disableupdatenotifications) ? $this->available_updates($availableupdates, $availableupdatesfetch) : '';
-        // $output .= $this->insecure_dataroot_warning($insecuredataroot);
+        $output .= $this->insecure_dataroot_warning($insecuredataroot);
         $output .= $this->development_libs_directories_warning($devlibdir);
         $output .= $this->themedesignermode_warning($themedesignermode);
         $output .= $this->display_errors_warning($errorsdisplayed);
